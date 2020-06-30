@@ -13,8 +13,9 @@
 잘 짜여진 블록체인은 말그대로 블록에 기록되어 저장된다.  
 그 블록들은 암호화 기술을 적용해 디지털 데이터와 나뉘어진 원장(가계부같은거) 연결되어있다.
 그 ledger는 접근하는 누구한테나 공유,증명 되어진다. (Third party의 개입없이) 중간 역할을 하는 기관을 말하는듯 암호화"signature"는 블록을 생성하고 각각의 이전의 블록과 연결하는데 이 가상의 블록은 남이 함부로 변경하지 못하게된다.  
-블록체인기술은 보안에 있어서 아주 강하고 유연하지만 보이지 않고 기술에 대한 지식 부족이 이 기술의 장애요소로 남아있다.    
-[learn blockchains by building one](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46)
+블록체인기술은 보안에 있어서 아주 강하고 유연하지만 보이지 않고 기술에 대한 지식 부족이 이 기술의 장애요소로 남아있다. 
+  
+[learn blockchains by building one](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). 블록체인 만들기 ㄱ 
 
 
 
