@@ -63,7 +63,7 @@ class BlockChain {
 }
 
 let myungsCoin = new BlockChain();
-
+console.log('이상훈바보');
 console.log('Mining Block 1...');
 myungsCoin.addBlock(new Block(1, "07/03/2020",{amount:4}));
 console.log('Mining Block 2...');
