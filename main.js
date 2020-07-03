@@ -12,6 +12,9 @@ class Block {
     calculateHash(){
         return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
     }
+
+//Proof of Work
+//컴퓨터 연산이 쥰내이 빨라서 빠르게 바꿀수없게 이걸 적용 Mining 이라고도 함 00을 많이 넣을수록 시간이 오래 걸리게 되고 비트코인은 한 블록이 10분마다 만들어지게 하는걸 목적으로 함
     mineBlock(difficulty){
         while(this.hash.substring(0,difficulty) !== Array(difficulty + 1).join("0")){
             this.nonce++;
@@ -61,9 +64,9 @@ class BlockChain {
 
 let myungsCoin = new BlockChain();
 
-console.log('Mining Block 1...')
+console.log('Mining Block 1...');
 myungsCoin.addBlock(new Block(1, "07/03/2020",{amount:4}));
-console.log('Mining Block 2...')
+console.log('Mining Block 2...');
 myungsCoin.addBlock(new Block(2, "07/03/2020",{amount:10}));
 
 
