@@ -1,16 +1,23 @@
 const SHA256 = require('crypto-js/sha256');
 
+class Transaction{
+    constructor(fromAddress, toAddress, amount){
+        this.fromAddress = fromAddress;
+        this.toAddress = toAddress;
+        this.amount = amount;
+    }
+}
+
 class Block {
-    constructor(index, timestamp, data, previousHash ='') {
-        this.index = index;
+    constructor(timestamp, transactions, previousHash ='') {
         this.timestamp = timestamp;
-        this.data = data;
+        this.transactions = transactions;
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
         this.nonce = 0;
     }
     calculateHash(){
-        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.transactions) + this.nonce).toString();
     }
 
 //Proof of Work
@@ -27,21 +34,52 @@ class Block {
 class BlockChain {
     constructor(){
         this.chain = [this.createGenesisBlock()];
-        this.difficulty = 4;
+        this.difficulty = 2;
+        this.pendingTransactions = [];
+        this.miningReward = 100;
     }
 
     createGenesisBlock(){
-        return new Block(0,"07/02/2020",'Genesis block','0');
+        return new Block("07/02/2020",'Genesis block','0');
     }
 
     getLatestBlock(){
-        return this.chain[this.chain.length - 1];
+        return this.chain[this.chain.length - 1]
     }
 
-    addBlock(newBlock){
-        newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.mineBlock(this.difficulty);
-        this.chain.push(newBlock);
+    //mining의 난이도와 보상의 차이를 결정하는 곳 
+    minePendingTransactions(miningRewardAddresss){
+    
+        let block = new Block(Date.now(), this.pendingTransactions);
+        block.mineBlock(this.difficulty); 
+
+        console.log('Block successfully mined');
+        this.chain.push(block);
+    //블록이 만들어지면 다시 초기화
+        this.pendingTransactions= [
+            new Transaction(null, miningRewardAddresss , this.miningReward)
+        ];
+    }
+
+    createTransaction(transaction){
+        this.pendingTransactions.push(transaction);
+    }
+
+    getBalanceOfAddress(address){
+        let balance = 0;
+
+        for(const block of this.chain){
+            for(const trans of block.transactions){
+                if(trans.fromAddress === address){
+                    balance -= trans.amount;
+                }
+
+                if(trans.toAddress === address){
+                    balance += trans.amount;
+                }
+            }
+        }
+        return balance;
     }
 
     //유효성 검사
@@ -57,16 +95,21 @@ class BlockChain {
             if(currentBlock.previousHash !== previousBlock.hash){
                 return false;
             }
-        }
+        };
         return true;
     }
 }
 
 let myungsCoin = new BlockChain();
-console.log('이상훈바보');
-console.log('Mining Block 1...');
-myungsCoin.addBlock(new Block(1, "07/03/2020",{amount:4}));
-console.log('Mining Block 2...');
-myungsCoin.addBlock(new Block(2, "07/03/2020",{amount:10}));
+myungsCoin.createTransaction(new Transaction('address1','address2',100));
+myungsCoin.createTransaction(new Transaction('address2','address1',50));
 
+console.log('\n Starting the miner...');
+myungsCoin.minePendingTransactions('myungs-address');
 
+console.log('\n Balance of myung is ',myungsCoin.getBalanceOfAddress('myungs-address'));
+
+console.log('\n Starting the miner...');
+myungsCoin.minePendingTransactions('myungs-address');
+
+console.log('\n Balance of myung is ',myungsCoin.getBalanceOfAddress('myungs-address'));
