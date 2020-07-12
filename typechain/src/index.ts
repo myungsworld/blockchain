@@ -65,7 +65,9 @@ const createNewBlock =(data:string) : Block => {
         newHash,
         previousBlock.hash,
         data,
-        newTimeStamp)
+        newTimeStamp
+    );
+    addBlock(newBlock);
     return newBlock;
 }
 
@@ -91,3 +93,8 @@ const addBlock = (candidateBlock : Block) : void => {
     }
 }
 
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+
+console.log(blockchain)
