@@ -53,5 +53,7 @@ block = {
     - 리더 피어노드 : 조직 대표 피어 노드 
   - __오더링 서비스 노드__(오더러) : 네트워크에 참여하는 모든 피어 노드의 분기 및 정렬 역할  
   
+  ![Fabric Flowchart](https://user-images.githubusercontent.com/56465854/89724240-6a536f80-da3b-11ea-8799-13de458e43f3.png)
+
 
 
