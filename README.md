@@ -68,9 +68,13 @@ block = {
 
 
 - __Cryptogen__ 은 인증서 발급 도구  
-  * ㄱ
-  * ㄴ
-Configtxgen은 블록 및 트랜잭션 파일을 생성하는 도구  
+  * __cryptogen generate__ <<args>>  
+  * --config : 인증서 발급을 위한 설정 파일을 입력  
+  * --output : 인증서 파일의 저장 위치 지정 default = crypto-config  
+  * __cryptogen extend__ <<ages>>  
+  * --input : 기존에 발급된 인증서 파일의 저장 위치 불러옴  
+
+- __Configtxgen__ 은 블록 및 트랜잭션 파일을 생성하는 도구  
 Configtxlator 블록 및 트랙잭션 구문 분석 도구  
 Peer 블록체인 데이터를 저장하고 유지보수 체인코드를 실행하는 마스터 노드 도구  
 Orderer 트랜잭션 패키징,정렬 도구  
