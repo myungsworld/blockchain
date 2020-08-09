@@ -46,12 +46,13 @@ block = {
   - __채널__ : 트랜잭션의 접근 권한을 그룹별로 설정  
   - __조직__ : 조직별 피어노드 관리 보증 정책 수행  
   - __노드__ : 그냥 서버라고 보면됨 블록체인은 수많은 서버들이 관리함  
+  - __오더링 서비스 노드__(오더러) : 네트워크에 참여하는 모든 피어 노드의 분기 및 정렬 역할 
   - __피어 노드__  
     - 엔도싱 피어노드 : 보증 정책에 따라 트랜잭션 검토 후 보증 사인을 첨부  
     - 커미팅 피어노드 : 트랜잭션 결과에 문제가 없으면 트랜잭션 확정한 후 블록체인에 업데이트  
     - 앵커 피어노드 : 채널 대표 피어 노드
     - 리더 피어노드 : 조직 대표 피어 노드 
-  - __오더링 서비스 노드__(오더러) : 네트워크에 참여하는 모든 피어 노드의 분기 및 정렬 역할  
+ 
   
   
 ## 플로우 차트
@@ -66,7 +67,7 @@ block = {
 5. OSN에서 생성된 트랜잭션 블록을 엔도싱과 커미팅 피어 노드들에게 전송하고 __각 노드들은 RW세트와 현재 World State가 일치하는지 유효성 검사 진행__   
 6. __유효성이 검증된 트랜잭션은 모든 피어노드 데이터베이스에 기록__ 하고 성공 또는 실패를 애플리케이션에게 알린다.   
 
-
+## 하이퍼레저 핵심 도구 
 - __Cryptogen__ 은 인증서 발급 도구  
   * __cryptogen generate__ <<args>>  
   * --config : 인증서 발급을 위한 설정 파일을 입력  
@@ -75,8 +76,32 @@ block = {
   * --input : 기존에 발급된 인증서 파일의 저장 위치 불러옴  
 
 - __Configtxgen__ 은 블록 및 트랜잭션 파일을 생성하는 도구  
-Configtxlator 블록 및 트랙잭션 구문 분석 도구  
-Peer 블록체인 데이터를 저장하고 유지보수 체인코드를 실행하는 마스터 노드 도구  
-Orderer 트랜잭션 패키징,정렬 도구  
+  * -asOrg : 조직이름  
+  * -channelID : 채널ID  
+  * -inspectBlock : 지정된 경로에 있는 블록에 포함된 구성  
+  * -inspectChannelCreateTx : 채널 정보에 대한 트랜잭션 구성  
+  * -outputAnchorPeersUpdate : 앵커 피어 노드 업데이트 정보가 담긴 트랜잭션 파일이 저장될 경로  
+  * -outputBlock : 제네시스 블록 파일이 저장될 경로  
+  * -outputCreateChannlTx : 채널 생성 정보가 담긴 트랜잭션 파일이 저장될 경로  
+  
+- __Configtxlator__ 블록 및 트랙잭션 구문 분석 도구(REST 서버 구성)
+  * start : REST server 시작  
+  * Proto_encode : JSON 형식을 protobuf로 변환  
+  * proto_decode : protobuf 를 JSON 형식으로 변환
+  
+_ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 실행하는 마스터 노드 도구  
+  * chaincode : 체인코드 관련 작업  
+    - 패키지 배포 명령어  
+    - package, signpackage, install  
+    - 생성 및 업데이트  
+    - instantiate, update  
+    - 실행 명령어  
+    - invoke,query  
+  * channel : 채널 관련 작업  
+    - create,fetch,getinfo,join,list,signconfigtx,update  
+  * logging : 로그 수준 작업  
+  * node : 노드 서버 시작  
+  * version : 피어 노드 버전 정보 표시  
+- __Orderer__ 트랜잭션 패키징,정렬 도구  
 
 
