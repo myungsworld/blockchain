@@ -113,7 +113,9 @@ document 기반 데이터베이스이고 몽고DB랑 비슷하며 Json이랑 연
 Init 메서드에서 putState 를 쓰면 자동으로 world state key를 업데이트 시켜준다.  
 query 메서드에서 getState 로 DB에서 업데이트된 키를 가져온다.  
 
-```체인코드에선 putstate를 하고 난후 getstate를 바로 쓸수 없다 이유는 바로!!!1!!!!!!#@#!@#@!#!@!!!!
-   putstate를 했다고 world state에 바로 업데이트 되는게 아니기 때문이다.
-   putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다음 변경된다.```
+```
+체인코드에선 putstate를 하고 난후 getstate를 바로 쓸수 없다
+putstate를 했다고 world state에 바로 업데이트 되는게 아니기 때문이다.
+putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다음 변경된다.
+```
    
