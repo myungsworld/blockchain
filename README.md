@@ -87,7 +87,7 @@ block = {
 - __Configtxlator__ 블록 및 트랙잭션 구문 분석 도구(REST 서버 구성)
   * start : REST server 시작  
   * Proto_encode : JSON 형식을 protobuf로 변환  
-  * proto_decode : protobuf 를 JSON 형식으로 변환
+  * proto_decode : protobuf 를 JSON 형식으로 변환   
   
 _ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 실행하는 마스터 노드 도구  
   * chaincode : 체인코드 관련 작업  
@@ -104,4 +104,12 @@ _ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 �
   * version : 피어 노드 버전 정보 표시  
 - __Orderer__ 트랜잭션 패키징,정렬 도구  
 
+## 개발 일지
+
+### Chaincode
+
+world state를 저장하는 데이터베이스는 couchDB  
+document 기반 데이터베이스이고 몽고DB랑 비슷하며 Json이랑 연동된다.  
+Init 메서드에서 putState 를 쓰면 자동으로 world state key를 업데이트 시켜준다.  
+query 메서드에서 getState 로 DB에서 업데이트된 키를 가져온다.  
 
