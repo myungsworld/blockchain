@@ -1,7 +1,9 @@
 ## 마샬링
 논리적 구조를 로우 바이트로 변경하는 것을 Marshaling or Encoding 이라고 표현한다.  
 구조체 같은 go value를 바이트 슬라이스로 변경하는 것이다.  
-
+```go
+func Marshal(v interface{}) ([]byte, error)
+```
 __json.Marshal__ 함수가 이 역할을 한다.  
 __json,MarshalIndent__ 가독성을 높이고 싶다면 사용.  
 
@@ -10,11 +12,8 @@ ex. json.MarshalIndent([struct],""," ")
 ## 언마샬링
 반대로 바이트 슬라이스나 문자열을 논리적 자료 구조로 변경하는 것을 언마샬링이라고 한다.
 __json.Unmarshal__ 
-```
-var s = `{"name":"gopher","age":7}`
-var u User
-json.Unmarshal([]byte(s), &u)
-fmt.Printf("%+v\n", u) // {Name:gopher Age:7}
+```go
+func Unmarshal(data []byte, v interface{}) error
 ```
 JSON 문자열을 바이트 슬라이스 형태로 넘겨주고 User 타입 변수 u의 포인터를 전달한다,. 함수가 실행되면 문자열이 파싱되어 User 값이 생성된다.
 
