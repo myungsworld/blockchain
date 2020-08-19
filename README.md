@@ -106,7 +106,7 @@ _ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 �
 
 ## 개발 일지
 
-### [Chaincode](https://www.youtube.com/watch?v=D6iR4xmEW_Y) 
+### [Chaincode](https://github.com/myungsworld/blockchain/blob/master/go/src/coin.go) 
 
 world state를 저장하는 데이터베이스는 couchDB  
 document 기반 데이터베이스이고 몽고DB랑 비슷하며 Json이랑 연동된다.  
