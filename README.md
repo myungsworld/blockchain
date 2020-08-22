@@ -114,14 +114,14 @@ Init 메서드에서 putState 를 쓰면 자동으로 world state key를 업데�
 query 메서드에서 getState 로 DB에서 업데이트된 키를 가져온다.  
 
 
-체인코드에선 putstate를 하고 난후 getstate를 바로 쓸수 없다
-putstate를 했다고 world state에 바로 업데이트 되는게 아니기 때문이다.
-putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다음 변경된다.
-만약 put을 하고 바로 뒤에 get을 한다면 그 state는 이전의 state를 가져오게 된다.
+체인코드에선 putstate를 하고 난후 getstate를 바로 쓸수 없다  
+putstate를 했다고 world state에 바로 업데이트 되는게 아니기 때문이다.  
+putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다음 변경된다.  
+만약 put을 하고 바로 뒤에 get을 한다면 그 state는 이전의 state를 가져오게 된다.  
 
 ```
 docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channelsales1 -n coin-cc -v 1.0 -c '{"Args":[""]}' -P "OR ('SalesOrg.member','CustomerOrg.member')"
 ```
-인스턴스화 과정에서 나오는 에러
+인스턴스화 과정에서 나오는 에러  
 Error: could not assemble transaction, err proposal response was not successful, error code 500, msg error starting container: error starting container: Failed to generate platform-specific docker build: Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown
 
