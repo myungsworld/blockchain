@@ -125,8 +125,8 @@ docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channe
 인스턴스화 과정에서 나오는 에러  
 Error: could not assemble transaction, err proposal response was not successful, error code 500, msg error starting container: error starting container: Failed to generate platform-specific docker build: Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown
 
-후 Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown
-이 에러 고치다가 블록체인에 대한 벽을 느꼇다. 
+후 Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown  
+이 에러 고치다가 블록체인에 대한 벽을 느꼇다.    
 그냥 기존에 있는 hyperledger/fabric-ccenv 뒤에있는 태그를 latest로 바꿔주면 됐다.
 ```
 docker tag 3d31661a812a hyperledger/fabric-ccenv:latest
