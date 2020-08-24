@@ -134,4 +134,4 @@ docker tag 3d31661a812a hyperledger/fabric-ccenv:latest
 ```
 다시 벽을 오르자;;  
 
-2020/08/24 개요부터 다시;;  
+FABRIC_CFG_PATH : configtx.yaml 파일이 존재하는 경로 - configtxgen 도구가 위치한 경로로 configtxgen 명령 실행 필요 $ export FABRIC_CFG_PATH=$PWD
