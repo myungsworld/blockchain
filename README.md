@@ -133,3 +133,5 @@ Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hy
 docker tag 3d31661a812a hyperledger/fabric-ccenv:latest
 ```
 다시 벽을 오르자;;  
+
+2020/08/24 개요부터 다시;;  
