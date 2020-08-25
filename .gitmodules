@@ -1,0 +1,3 @@
+[submodule "KNUCoin"]
+	path = KNUCoin
+	url = https://github.com/byun618/KNUCoin.git
