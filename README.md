@@ -127,19 +127,20 @@ docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channe
 Error: could not assemble transaction, err proposal response was not successful, error code 500, msg error starting container: error starting container: Failed to generate platform-specific docker build: Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown
 ```
 Failed to pull hyperledger/fabric-ccenv:latest: API error (404): manifest for hyperledger/fabric-ccenv:latest not found: manifest unknown: manifest unknown  
-이 에러 고치다가 블록체인에 대한 벽을 느꼇다  
+이 에러 고치다가 블록체인에 대한 벽을 느꼇다. 다시 벽을 오르자;;    
 그냥 기존에 있는 hyperledger/fabric-ccenv 뒤에있는 태그를 latest로 바꿔주면 됐다  
 ```
 docker tag 3d31661a812a hyperledger/fabric-ccenv:latest
 ```
-다시 벽을 오르자;;  
+
 
 FABRIC_CFG_PATH : configtx.yaml 파일이 존재하는 경로 - configtxgen 도구가 위치한 경로로 configtxgen 명령 실행 필요 $ export FABRIC_CFG_PATH=$PWD
 
 블록체인 설치과정에서 계속 내가 만든 체인코드가 설치가 되지않고 예제가 설치가 됐다. 고생을 몇시간 하고 난후 -v 1.0 이 버전부분을 고쳐야 비로서 내가 만든 체인코드가 설치가 된다는걸 알았다.  
 (Px. 체인코드 이름을 바꾸고 도커 컨테이너와 이미지를 모두 지우고 해봐도 이미 저 버전으로 하면 예제가 설치된다.)  
 
-API404 Error network not found. 
 docker-compose.yaml 파일을 도커 컨테이너로 올릴때 설정된 네트워크 이름이랑 달라서 나오는 에러  
+```
+API404 Error network not found. 
 CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=를 network이름에 맞추면 된다.  
-
+```
