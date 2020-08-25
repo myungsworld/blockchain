@@ -139,4 +139,7 @@ FABRIC_CFG_PATH : configtx.yaml 파일이 존재하는 경로 - configtxgen 도�
 블록체인 설치과정에서 계속 내가 만든 체인코드가 설치가 되지않고 예제가 설치가 됐다. 고생을 몇시간 하고 난후 -v 1.0 이 버전부분을 고쳐야 비로서 내가 만든 체인코드가 설치가 된다는걸 알았다.  
 (Px. 체인코드 이름을 바꾸고 도커 컨테이너와 이미지를 모두 지우고 해봐도 이미 저 버전으로 하면 예제가 설치된다.)  
 
+API404 Error network not found. 
+docker-compose.yaml 파일을 도커 컨테이너로 올릴때 설정된 네트워크 이름이랑 달라서 나오는 에러  
+CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=를 network이름에 맞추면 된다.  
 
