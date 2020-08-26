@@ -144,3 +144,8 @@ docker-compose.yaml 파일을 도커 컨테이너로 올릴때 설정된 네트�
 API404 Error network not found. 
 CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=를 network이름에 맞추면 된다.  
 ```
+
+이 에러는 맘스터치 먹어야되서 아직 못고침;;
+```
+Error: got unexpected status: SERVICE_UNAVAILABLE -- backing Kafka cluster has not completed booting; try again later
+```
