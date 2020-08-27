@@ -149,3 +149,4 @@ CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=를 network이름에 맞추면 된다.
 ```
 Error: got unexpected status: SERVICE_UNAVAILABLE -- backing Kafka cluster has not completed booting; try again later
 ```
+coin.go buyfood arguments fix
