@@ -152,8 +152,8 @@ Error: got unexpected status: SERVICE_UNAVAILABLE -- backing Kafka cluster has n
 coin.go buyfood arguments fix
 
 체인코드 카우치디비 연동  
-yaml 파일에 각 피어마다 couchdb 연동
-environment - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+yaml 파일에 각 피어마다 couchdb 연동. 
+environment - CORE_LEDGER_STATE_STATEDATABASE=CouchDB.  
 depens on - coundb(index)  
 
 카우치 디비 컨테이너 생성  
