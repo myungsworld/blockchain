@@ -177,4 +177,7 @@ couchdb(index):
     - network name
 ```
 
-CA server 구축
+걍 체인코드 잘못적으면 나오는 에러임 err 를 nil 에 유효성검사하는걸 그냥 err == nil에 넣어서 생김;;
+```
+Error: endorsement failure during invoke. response: status:500 message:"failed to execute transaction 163d61107ba8285a970dd305718df61d47744b5ed95c058f5f4d88051dddff05: error sending: timeout expired while executing transaction" 
+```
