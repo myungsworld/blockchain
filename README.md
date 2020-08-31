@@ -181,3 +181,4 @@ couchdb(index):
 ```
 Error: endorsement failure during invoke. response: status:500 message:"failed to execute transaction 163d61107ba8285a970dd305718df61d47744b5ed95c058f5f4d88051dddff05: error sending: timeout expired while executing transaction" 
 ```
+채널을 나눠서 운영하는건 옛날방식, 체인코드를 여러개로 나누는것보다 Private Data를 사용하는게 좋다
