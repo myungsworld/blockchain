@@ -111,6 +111,13 @@ MSP는 쉽게 생각하면 인증서를 만들어주는 거고 CA는 그 인증�
 피어와 오더러 MSP는 로컬에서 파일 시스템에 탑재 되어 사용하고  
 네트워크와 채널 MSP는 글로벌로 모든 구성원들을 식별할때 사용되고 이 정보는 제네시스블록과 채널 트랜잭션에 포함된다.  
 
+## Private Data
+조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋.쿼리할 수 있는 채널의 조직에 대해  
+정희된 하위 집합을 허용하는 데이터 컬렉션  
+쉽게말해 조직이 두개 있을때 하나의 조직에 프라이빗 데이터를 추가하면 조회를 했을때 그 조직에만 추가되서 보여주는 데이터를 말함  
+프라이빗 데이터는 Side database에 저장된다.  
+[Private Data 적용](https://miiingo.tistory.com/193)  
+
 ## 개발 일지
 
 ### [Chaincode](https://github.com/myungsworld/blockchain/blob/master/go/src/coin.go) 
@@ -151,12 +158,6 @@ docker-compose.yaml 파일을 도커 컨테이너로 올릴때 설정된 네트�
 API404 Error network not found. 
 CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=를 network이름에 맞추면 된다.  
 ```
-
-이 에러는 맘스터치 먹어야되서 아직 못고침;;
-```
-Error: got unexpected status: SERVICE_UNAVAILABLE -- backing Kafka cluster has not completed booting; try again later
-```
-coin.go buyfood arguments fix
 
 체인코드 카우치디비 연동  
 yaml 파일에 각 피어마다 couchdb 연동. 
