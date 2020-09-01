@@ -167,7 +167,7 @@ depens on - coundb(index)
 카우치 디비 컨테이너 생성  
 ```
 couchdb(index):
-  container_name: couchdb4
+  container_name: couchdb(index)
   image: hyperledger/fabric-couchdb
   environment:
     - COUCHDB_USER=
