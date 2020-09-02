@@ -184,3 +184,7 @@ Error: endorsement failure during invoke. response: status:500 message:"failed t
 ```
 채널을 나눠서 운영하는건 옛날방식, 체인코드를 여러개로 나누는것보다 Private Data를 사용하는게 좋다  
 Fabric v 1.4 부터는 Kafka 대신 Raft 알고리즘 사용  
+
+3f+1 -> PBFT  
+L(leader)+f(follow) -> RAFT
+위 두개 모두 블록의 내용이 같다는걸 증명하기 위함  
