@@ -124,7 +124,7 @@ read/write set are written to the blockchain
 
 ## Protocol
 
-Gossip: 속도가 느리고 조용함
+Gossip: 속도가 느리고 조용함  
 Brodcast : 속도가 빠르고 노이지함
 
 ## 개발 일지
