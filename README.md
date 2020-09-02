@@ -111,6 +111,10 @@ MSP는 쉽게 생각하면 인증서를 만들어주는 거고 CA는 그 인증�
 피어와 오더러 MSP는 로컬에서 파일 시스템에 탑재 되어 사용하고  
 네트워크와 채널 MSP는 글로벌로 모든 구성원들을 식별할때 사용되고 이 정보는 제네시스블록과 채널 트랜잭션에 포함된다.  
 
+## HLF Ledger
+Blockchain + database
+read/write set are written to the blockchain
+
 ## Private Data
 조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋.쿼리할 수 있는 채널의 조직에 대해  
 정희된 하위 집합을 허용하는 데이터 컬렉션  
