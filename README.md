@@ -122,6 +122,11 @@ read/write set are written to the blockchain
 프라이빗 데이터는 Side database에 저장된다.  
 [Private Data 적용](https://miiingo.tistory.com/193)  
 
+## Protocol
+
+Gossip: 속도가 느리고 조용함
+Brodcast : 속도가 빠르고 노이지함
+
 ## 개발 일지
 
 ### [Chaincode](https://github.com/myungsworld/blockchain/blob/master/go/src/coin.go) 
