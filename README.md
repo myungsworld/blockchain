@@ -128,7 +128,7 @@ read/write set are written to the blockchain
 개인정보나 지울수있는 데이터는 side database에 저장한다.  
 하이퍼레저에서 제공하는 데이터베이스가 있다.  
 이 정보는 ledger에 저장이 되지 않는다.  
-
+block to live 로 수명을 결정한다.  
 ## Protocol
 
 Gossip: 속도가 느리고 조용함  
