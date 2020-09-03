@@ -122,6 +122,11 @@ read/write set are written to the blockchain
 프라이빗 데이터는 Side database에 저장된다.  
 [Private Data 적용](https://miiingo.tistory.com/193)  
 
+## Private Data Collections(PDC)
+개인정보나 지울수있는 데이터는 side database에 저장한다.  
+하이퍼레저에서 제공하는 데이터베이스가 있다.  
+이 정보는 ledger에 저장이 되지 않는다.  
+
 ## Protocol
 
 Gossip: 속도가 느리고 조용함  
