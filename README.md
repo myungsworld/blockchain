@@ -134,6 +134,12 @@ block to live 로 수명을 결정한다.
 Gossip: 속도가 느리고 조용함  
 Brodcast : 속도가 빠르고 노이지함
 
+## fabric-ca-client
+1.webserer에서 prviate ,public 키를 생성  
+2.ca가 그걸 받아서 ca 인증서를 생성해서 서명
+3. webserver로 보냄 (인증서를 받음)
+
+
 ## 개발 일지
 
 ### [Chaincode](https://github.com/myungsworld/blockchain/blob/master/go/src/coin.go) 
