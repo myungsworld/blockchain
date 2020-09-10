@@ -209,7 +209,7 @@ Fabric v 1.4 부터는 Kafka 대신 Raft 알고리즘 사용
 
 3f+1 -> PBFT  
 L(leader)+f(follow) -> RAFT  
-RAFT는 여러개의 오더러가 모여서 consensus 함 (4개)  
+RAFT는 여러개의 오더러가 모여서 consensus 함 (5개), kafka (4개)  
 위 두개 모두 블록의 내용이 같다는걸 증명하기 위함  
 
 contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가
