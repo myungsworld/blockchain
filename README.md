@@ -157,7 +157,8 @@ putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다�
 
 peer chaincode list --installed  
 어떤 체인코드가 설치 되었는지 확인  
-
+peer chaincode list --instantiated -C [채널이름]  
+배포된 체인코드 확인  
 
 ```
 docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channelsales1 -n coin-cc -v 1.0 -c '{"Args":[""]}' -P "OR ('SalesOrg.member','CustomerOrg.member')"
