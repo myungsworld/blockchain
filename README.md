@@ -155,6 +155,10 @@ putstate를 했다고 world state에 바로 업데이트 되는게 아니기 때
 putstate를 하고 난후 피어가 블록에 있는 트랜잭션을 읽은다음 변경된다.  
 만약 put을 하고 바로 뒤에 get을 한다면 그 state는 이전의 state를 가져오게 된다.  
 
+peer chaincode list --installed  
+어떤 체인코드가 설치 되었는지 확인  
+
+
 ```
 docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channelsales1 -n coin-cc -v 1.0 -c '{"Args":[""]}' -P "OR ('SalesOrg.member','CustomerOrg.member')"
 ```
