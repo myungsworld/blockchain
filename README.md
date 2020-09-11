@@ -142,6 +142,8 @@ PDC JSON 설정파일
  }
 ]
 ```
+requiredPeerCount : 적어도 이정도 피어는 프라이빗 데이터를 가지고 있어야 한다.  
+maxPeerCount : 최대 이정도 피어가 프라이빗 데이터를 복제하고 있으면 된다. 보안에 중요     
 
 
 ## Private Data Collections(PDC)
