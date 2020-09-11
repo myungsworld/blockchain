@@ -116,11 +116,33 @@ Blockchain + database
 read/write set are written to the blockchain
 
 ## Private Data
-조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋.쿼리할 수 있는 채널의 조직에 대해  
-정희된 하위 집합을 허용하는 데이터 컬렉션  
+조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋,쿼리할 수 있는 채널의 조직에 대해 정의된 하위 집합을 허용하는 데이터 컬렉션  
 쉽게말해 조직이 두개 있을때 하나의 조직에 프라이빗 데이터를 추가하면 조회를 했을때 그 조직에만 추가되서 보여주는 데이터를 말함  
 프라이빗 데이터는 Side database에 저장된다.  
 [Private Data 적용](https://miiingo.tistory.com/193)  
+
+PDC JSON 설정파일  
+```json
+[
+ {
+   "name": "collectionMarbles",
+   "policy": "OR('Org1MSP.member', 'Org2MSP.member')",
+   "requiredPeerCount": 0,
+   "maxPeerCount": 3,
+   "blockToLive":1000000,
+   "memberOnlyRead": true
+},
+ {
+   "name": "collectionMarblePrivateDetails",
+   "policy": "OR('Org1MSP.member')",
+   "requiredPeerCount": 0,
+   "maxPeerCount": 3,
+   "blockToLive":3,
+   "memberOnlyRead": true
+ }
+]
+```
+
 
 ## Private Data Collections(PDC)
 ![PDC FLOW CHART](https://user-images.githubusercontent.com/56465854/92067009-3bcc7880-edde-11ea-8cdf-e9700cac66eb.PNG)
