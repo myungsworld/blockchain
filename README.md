@@ -125,9 +125,8 @@ read/write set are written to the blockchain
 ## Private Data Collections(PDC)
 ![PDC FLOW CHART](https://user-images.githubusercontent.com/56465854/92067009-3bcc7880-edde-11ea-8cdf-e9700cac66eb.PNG)
 
-개인정보나 지울수있는 데이터는 side database에 저장한다.  
-하이퍼레저에서 제공하는 데이터베이스가 있다.  
-이 정보는 ledger에 저장이 되지 않는다.  
+개인정보나 지울수있는 데이터는 private state에 저장한다.   
+이 정보는 ledger에 해시값으로 저장된다. 
 block to live 로 수명을 결정한다.  
 ## Protocol
 
