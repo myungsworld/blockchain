@@ -2,7 +2,7 @@
 
 docker-compose -f docker-compose.yaml down
 docker-compose -f docker-compose.yaml up -d
-
+# git test
 # Create the channel
 docker exec cli peer channel create -o orderer.knucoin.com:7050 -c channelsales1 -f /etc/hyperledger/configtx/channel1.tx
 sleep 20
