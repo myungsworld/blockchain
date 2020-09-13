@@ -116,7 +116,7 @@ Blockchain + database
 read/write set are written to the blockchain
 
 
-## [RAFT consensus](https://github.com/IBM/raft-fabric-sample) 
+## [RAFT 오더러](https://github.com/IBM/raft-fabric-sample) 
 
 ## Private Data
 조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋,쿼리할 수 있는 채널의 조직에 대해 정의된 하위 집합을 허용하는 데이터 컬렉션  
