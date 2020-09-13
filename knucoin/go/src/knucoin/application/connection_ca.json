@@ -1,0 +1,34 @@
+{
+    "certificateAuthorities": {
+        "ca.sales.knucoin.com": {
+            "url": "http://localhost:7054",
+            "caName": "ca.sales.knucoin.com",
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/peerOrganizations/sales.knucoin.com/ca/ca.sales.knucoin.com-cert.pem"
+            },
+            "registrar":{
+                "enrollId": "admin",
+                "enrollSecret": "adminpw",
+                "caName": "casales1"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.customer.knucoin.com": {
+            "url": "http://localhost:8054",
+            "caName": "ca.customer.knucoin.com",
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/peerOrganizations/customer.knucoin.com/ca/ca.customer.knucoin.com-cert.pem"
+            },
+            "registrar":{
+                "enrollId": "admin",
+                "enrollSecret": "adminpw",
+                "caName": "cacustomer1"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
