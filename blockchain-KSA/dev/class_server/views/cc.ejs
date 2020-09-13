@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+    <div class="section">
+        <div class="header">
+    
+            <div class="card w-75">
+                <div class="card-body">
+                  <h5 class="card-title">1. CLI 컨테이너 실행</h5>
+                  <p class="card-text">docker-compose -f ./docker-compose.yml up -d cli </p>
+                  <a target="_blank" href="/cc/1" class="btn btn-primary">수행</a>
+                  <a target="_blank" href="/cc/2" class="btn btn-primary">컨테이너목록보기</a>
+                </div>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">2. 체인코드 설치</h5>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode install -n fabcar -v 1.0 -p "github.com/fabcar/go"                 </p>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode list --installed               </p>
+                  <a target="_blank" href="/cc/3" class="btn btn-primary">수행</a>
+                  <a target="_blank" href="/cc/4" class="btn btn-primary">체인코드설치목록</a>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">3. 체인코드 배포</h5>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n fabcar -v 1.0 -c \'{"Args":[]}\' -P "OR (\'Org1MSP.member\',\'Org2MSP.member\')"</p>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode list --instantiated -C mychannel </p>
+                  <a target="_blank" href="/cc/5" class="btn btn-primary">수행</a>
+                  <a target="_blank" href="/cc/6" class="btn btn-primary">체인코드배포목록</a>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">4. 체인코드 테스트</h5>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c \'{"function":"initLedger","Args":[]}\'</p>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode query -C mychannel -n fabcar -c \'{"function":"queryAllCars","Args":[]}\'</p>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c \'{"function":"createCar","Args":["CAR100","kia","k3","white","blockchain"]}\'</p>
+                  <p class="card-text">docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c \'{"function":"queryCar","Args":["CAR100"]}\'</p>
+                  <a target="_blank" href="/cc/7" class="btn btn-primary">init Ledger</a>
+                  <a target="_blank" href="/cc/8" class="btn btn-primary">Query All Cars</a>
+                  <a target="_blank" href="/cc/9" class="btn btn-primary">Invoke CAR100</a>
+                  <a target="_blank" href="/cc/10" class="btn btn-primary">Query CAR100</a>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  
+              </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

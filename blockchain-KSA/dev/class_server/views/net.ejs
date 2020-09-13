@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+    <div class="section">
+        <div class="header">
+    
+            <div class="card w-75">
+                <div class="card-body">
+                  <h5 class="card-title">1. 준비물 생성</h5>
+                  <p class="card-text">cryptogen generate --config=./crypto-config.yaml </p>
+                  <p class="card-text">configtxgen -profile OneOrgOrdererGenesis -outputBlock ./config/genesis.blockv                </p>
+                  <p class="card-text">configtxgen -profile OneOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP                </p>
+                  <a target="_blank" href="/net/1" class="btn btn-primary">수행</a>
+                </div>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">2. 네트워크 생성</h5>
+                  <p class="card-text">docker-compose –f docker-compose.yml up –d ca.example.com orderer.example.com peer0.org1.example.com couchdb                 </p>
+                  <a target="_blank" href="/net/2" class="btn btn-primary">수행</a>
+                  <a target="_blank" href="/net/3" class="btn btn-primary">컨테이너목록보기</a>
+                  <a target="_blank" href="/net/4" class="btn btn-primary">네트워크종료</a>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">3. 채널 생성</h5>
+                  <p class="card-text">docker exec peer0.org1.example.com peer create channel                </p>
+                  <a target="_blank" href="/net/5" class="btn btn-primary">수행</a>
+              </div>
+              <br>
+              <div class="card w-50">
+                <div class="card-body">
+                  <h5 class="card-title">4. 채널에 피어조인</h5>
+                  <p class="card-text">docker exec peer0.org1.example.com peer join channel                 </p>
+                  <a target="_blank" href="/net/6" class="btn btn-primary">수행</a>
+                  <a target="_blank" href="/net/7" class="btn btn-primary">피어네트워크확인</a>
+              </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
