@@ -9,7 +9,7 @@ const ccpPath = path.resolve(__dirname, '..', 'connection_ca.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
 const ccp = JSON.parse(ccpJSON);
 
-async function main(args, res) {
+async function main(args) {
     try {
         let ca_name = ''
         let url = ''
@@ -34,7 +34,6 @@ async function main(args, res) {
         
         if (adminExists) {
             console.log(`An identity for the admin user(id:${args[0]}) of ${args[2]} already exiss in the wallet`);
-            res.send('fail')
             return;
         }
 
@@ -42,15 +41,13 @@ async function main(args, res) {
         const identity = X509WalletMixin.createIdentity(args[2], enrollment.certificate, enrollment.key.toBytes());
         await wallet.import(args[0], identity);
         console.log(`Successfully enrolled admin user(id:${args[0]}) of ${args[2]} and imported it into the wallet`);
-        res.send('success')
+
 
     } catch (error) {
         console.error(`Failed to enroll admin user(id:${args[0]}) of ${args[2]}: ${error}`);
-        res.send('fail')
         process.exit(1);
     }
 }
 
-module.exports = {
-    main:main
-}
+main(['admin', 'adminpw', 'SalesOrg'])
+main(['admin', 'adminpw', 'CustomerOrg'])

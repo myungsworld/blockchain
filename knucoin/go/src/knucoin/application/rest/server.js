@@ -5,21 +5,10 @@ app.use(bodyParser.json())
 
 var path = require('path');
 var sdk = require('./sdk');
-var enroll = require('../sdk/enrollAdmin')
 var regist = require('../sdk/registerUsers')
 
 const PORT = 8080;
 const HOST = 'localhost';
-
-app.post('/api/enrollAdmin', (req, res) => {
-
-    id = req.body.id
-    pw = req.body.pw
-    org = req.body.org
-
-    args = [id, pw, org]
-    enroll.main(args, res)
-})
 
 app.post('/api/registUser', (req, res) => {
 
