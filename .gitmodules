@@ -1,3 +1,6 @@
 [submodule "KNUCoin"]
 	path = KNUCoin
 	url = https://github.com/byun618/KNUCoin.git
+[submodule "raft-fabric-sample"]
+	path = raft-fabric-sample
+	url = https://github.com/IBM/raft-fabric-sample.git
