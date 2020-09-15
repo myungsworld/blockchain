@@ -118,6 +118,8 @@ read/write set are written to the blockchain
 
 ## [RAFT 오더러](https://github.com/IBM/raft-fabric-sample) 
 
+generate.sh, configtx.yaml , crypto-confi 수정 [참고](https://has3ong.github.io/fabricnetwork4/)  
+
 ## Private Data
 조직 데이터를 비공개로 유지해야 하는 경우의 별도의 채널을 만들지 않고 Private 데이터를 수집,커밋,쿼리할 수 있는 채널의 조직에 대해 정의된 하위 집합을 허용하는 데이터 컬렉션  
 쉽게말해 조직이 두개 있을때 하나의 조직에 프라이빗 데이터를 추가하면 조회를 했을때 그 조직에만 추가되서 보여주는 데이터를 말함  
