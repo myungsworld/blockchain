@@ -248,3 +248,5 @@ RAFT는 여러개의 오더러가 모여서 consensus 함 (5개), kafka (4개)
 contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가
 
 ca couchdb wallet
+
+읭 왜 조회하면 전께 뜨지 이거 고쳐야함
