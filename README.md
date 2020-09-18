@@ -250,3 +250,5 @@ contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가
 ca couchdb wallet
 
 읭 왜 조회하면 전께 뜨지 이거 고쳐야함
+
+query랑 invoke랑 구분해서 써야함 애초에 이게 문제인지 모르고 체인코드만 주구장창 들여다 보다가 하루다감  
