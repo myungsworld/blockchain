@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What's your imformation?"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/knuBlack"
+        android:id="@+id/text01"
+
+        >
+    </TextView>
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to KNU Coin"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/knuBlack"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/text02"
+        android:layout_below="@+id/text01"
+        >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:layout_below="@id/text02"
+        android:id="@+id/liner1"
+        android:layout_marginBottom="15dp">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:hint="아이디. 영문 숫자 조합 6자리 이상 "
+            android:id="@+id/user_id"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:background="#ffffff"
+            android:gravity="left|center"
+            android:text="중복체크"
+            android:textColor="@color/knuBlue"
+            android:textSize="18dp"
+            android:id="@+id/btn_duplicateId"
+            >
+
+        </Button>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호. 영문 숫자 조합 8자리 이상 "
+        android:layout_marginBottom="15dp"
+        android:inputType="textPassword"
+        android:layout_below="@id/liner1"
+        android:id="@+id/uesr_password"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호를 다시 입력해주세요. "
+        android:layout_marginBottom="15dp"
+        android:inputType="textPassword"
+        android:id="@+id/password_check"
+        android:layout_below="@+id/uesr_password"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/user_name"
+        android:layout_below="@id/password_check"
+
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:id="@+id/liner2"
+        android:layout_below="@+id/user_name">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="휴대폰 번호"
+            android:id="@+id/user_phone"
+            >
+
+        </EditText>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#ffffff"
+            android:gravity="left|center"
+            android:text="인증번호 요청"
+            android:textColor="@color/knuBlue"
+            android:textSize="18dp"
+            android:id="@+id/btn_phonecheck">
+
+
+        </Button>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/liner2"
+        android:id="@+id/liner3">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="인증 번호"
+            android:id="@+id/edit_phonecheck"
+            >
+
+        </EditText>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="#ffffff"
+            android:gravity="left|center"
+            android:text="인증"
+            android:textColor="@color/knuBlue"
+            android:textSize="18dp"
+            android:id="@+id/btn_confirm">
+
+        </Button>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원 가입"
+        android:textColor="#ffffff"
+        android:background="@color/knuRed"
+        android:layout_gravity="top"
+        android:layout_below="@id/liner3"
+        android:id="@+id/btn_signup"
+
+        >
+
+    </Button>
+
+
+
+
+
+</RelativeLayout>
+
+
+

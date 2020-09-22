@@ -1,0 +1,280 @@
+version: '2'
+
+networks:
+  knu_coin:
+
+services:
+  orderer.knucoin.com:
+    container_name: orderer.knucoin.com
+    image: hyperledger/fabric-orderer:1.4.3
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererOrg
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+      - 7050:7050
+    volumes:
+        - ./config/:/etc/hyperledger/configtx
+        - ./crypto-config/ordererOrganizations/knucoin.com/orderers/orderer.knucoin.com/:/etc/hyperledger/msp/orderer
+    networks:
+      - knu_coin
+  
+  peer0.sales.knucoin.com:
+    container_name: peer0.sales.knucoin.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.sales.knucoin.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=SalesOrg
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer0.sales.knucoin.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.sales.knucoin.com:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.sales.knucoin.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.sales.knucoin.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_knu_coin
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.sales:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    ports:
+      - 7051:7051
+      - 7053:7053
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/sales.knucoin.com/peers/peer0.sales.knucoin.com/msp:/etc/hyperledger/msp/peer
+        - ./crypto-config/peerOrganizations/sales.knucoin.com/users:/etc/hyperledger/msp/users
+        - ./config:/etc/hyperledger/configtx
+    depends_on:
+      - orderer.knucoin.com
+      - couchdb.peer0.sales
+    networks:
+      - knu_coin
+    
+  couchdb.peer0.sales:
+    container_name: couchdb.peer0.sales
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 5984:5984
+    networks:
+      - knu_coin
+
+  peer1.sales.knucoin.com:
+    container_name: peer1.sales.knucoin.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer1.sales.knucoin.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=SalesOrg
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer1.sales.knucoin.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_knu_coin
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.sales:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    ports:
+      - 8051:7051
+      - 8053:7053
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/sales.knucoin.com/peers/peer1.sales.knucoin.com/msp:/etc/hyperledger/msp/peer
+        - ./crypto-config/peerOrganizations/sales.knucoin.com/users:/etc/hyperledger/msp/users
+        - ./config:/etc/hyperledger/configtx
+    depends_on:
+      - orderer.knucoin.com
+      - couchdb.peer1.sales
+    networks:
+      - knu_coin
+
+  couchdb.peer1.sales:
+    container_name: couchdb.peer1.sales
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 6984:5984
+    networks:
+      - knu_coin
+
+  peer0.customer.knucoin.com:
+    container_name: peer0.customer.knucoin.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.customer.knucoin.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=CustomerOrg
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer0.customer.knucoin.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.customer.knucoin.com:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.customer.knucoin.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.customer.knucoin.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_knu_coin
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer0.customer:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    ports:
+      - 9051:7051
+      - 9053:7053
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/customer.knucoin.com/peers/peer0.customer.knucoin.com/msp:/etc/hyperledger/msp/peer
+        - ./crypto-config/peerOrganizations/customer.knucoin.com/users:/etc/hyperledger/msp/users
+        - ./config:/etc/hyperledger/configtx
+    depends_on:
+      - orderer.knucoin.com
+      - couchdb.peer0.customer
+    networks:
+      - knu_coin
+  
+  couchdb.peer0.customer:
+    container_name: couchdb.peer0.customer
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 7984:5984
+    networks:
+      - knu_coin
+
+  peer1.customer.knucoin.com:
+    container_name: peer1.customer.knucoin.com
+    image: hyperledger/fabric-peer:1.4.3
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer1.customer.knucoin.com
+      - CORE_LOGGING_PEER=debug
+      - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=CustomerOrg
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_ADDRESS=peer1.customer.knucoin.com:7051
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=net_knu_coin
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.peer1.customer:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    ports:
+      - 10051:7051
+      - 10053:7053
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/customer.knucoin.com/peers/peer1.customer.knucoin.com/msp:/etc/hyperledger/msp/peer
+        - ./crypto-config/peerOrganizations/customer.knucoin.com/users:/etc/hyperledger/msp/users
+        - ./config:/etc/hyperledger/configtx
+    depends_on:
+      - orderer.knucoin.com
+      - couchdb.peer1.customer
+    networks:
+      - knu_coin
+
+  couchdb.peer1.customer:
+    container_name: couchdb.peer1.customer
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 8984:5984
+    networks:
+      - knu_coin
+
+  cli:
+    container_name: cli
+    image: hyperledger/fabric-tools:1.4.3
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.sales.knucoin.com:7051
+      - CORE_PEER_LOCALMSPID=SalesOrg
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/sales.knucoin.com/users/Admin@sales.knucoin.com/msp
+      - CORE_CHAINCODE_KEEPALIVE=10
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./../chaincode/:/opt/gopath/src/chaincode/
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ./config:/etc/hyperledger/configtx
+    networks:
+        - knu_coin
+
+  ca.sales.knucoin.com:
+    image: hyperledger/fabric-ca:1.4.3
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.sales.knucoin.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.sales.knucoin.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/CA_SALES_PRIVATE_KEY
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/sales.knucoin.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca.sales.knucoin.com
+    networks:
+      - knu_coin
+
+  couchdb.ca.sales:
+    container_name: couchdb.ca.sales
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=knucoin
+      - COUCHDB_PASSWORD=knucoin
+    ports:
+      - 9984:5984
+    networks:
+      - knu_coin
+
+  ca.customer.knucoin.com:
+    image: hyperledger/fabric-ca:1.4.3
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.customer.knucoin.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.customer.knucoin.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/CA_CUSTOMER_PRIVATE_KEY
+    ports:
+      - "8054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/customer.knucoin.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca.customer.knucoin.com
+    networks:
+      - knu_coin
+
+  couchdb.ca.customer:
+    container_name: couchdb.ca.customer
+    image: hyperledger/fabric-couchdb
+    environment:
+      - COUCHDB_USER=knucoin
+      - COUCHDB_PASSWORD=knucoin
+    ports:
+      - 10984:5984
+    networks:
+      - knu_coin

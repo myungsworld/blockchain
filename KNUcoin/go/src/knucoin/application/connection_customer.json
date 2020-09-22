@@ -1,0 +1,83 @@
+{
+    "name": "knucoin-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Customer",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "channelcustomer1": {
+            "orderers": [
+                "orderer.knucoin.com"
+            ],
+            "peers": {
+                "peer0.customer.knucoin.com": {}
+            }
+        }
+    },
+    "organizations": {
+        "Customer": {
+            "mspid": "CustomerOrg",
+            "peers": [
+                "peer0.customer.knucoin.com"
+            ],
+            "certificateAuthorities": [
+                "ca.customer.knucoin.com"
+            ],
+            "adminPrivateKey": {
+                "path":"../../network/crypto-config/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp/keystore/8fcfa776c42f1b4ccaaef5d4cf06be27c961d42c178eb3bdf8f03e12b2ae7bbc_sk"
+            },
+            "signedCert":{
+                "path":"../../network/crypto-config/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp/signcerts/Admin@customer.knucoin.com-cert.pem"
+            }
+        }
+    },
+    "orderers": {
+        "orderer.knucoin.com": {
+            "url": "grpc://localhost:7050",
+            "grpcOptions":{
+                "ssl-target-name-override":"orderer.knucoin.com",
+                "grpc-max-send-message-length": -1
+            },
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/ordererOrganizations/knucoin.com/orderers/orderer.knucoin.com/msp/tlscacerts/tlsca.knucoin.com-cert.pem"
+            }
+        }
+    },
+    "peers": {
+        "peer0.customer.knucoin.com": {
+            "url": "grpc://localhost:9051",
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/peerOrganizations/customer.knucoin.com/peers/peer0.customer.knucoin.com/msp/tlscacerts/tlsca.customer.knucoin.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.customer.knucoin.com",
+                "hostnameOverride": "peer1.customer.knucoin.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.customer.knucoin.com": {
+            "url": "http://localhost:8054",
+            "caName": "ca.customer.knucoin.com",
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/peerOrganizations/customer.knucoin.com/ca/ca.customer.knucoin.com-cert.pem"
+            },
+            "registrar":{
+                "enrollId": "admin",
+                "enrollSecret": "adminpw",
+                "caName": "ca.customer.knucoin.com"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
