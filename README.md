@@ -249,10 +249,11 @@ contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가
 
 ca couchdb wallet
 
-읭 왜 조회하면 전께 뜨지 이거 고쳐야함
-
 query랑 invoke랑 구분해서 써야함 애초에 이게 문제인지 모르고 체인코드만 주구장창 들여다 보다가 하루다감  
 
 체인코드 에러처리, 0미만의 숫자나 보내야하는 금액이 마이너스나 등등 추가 
 체인코드 에러처리 완료  
 connection json 키값 함수 구현  
+
+## UI (IOS SwiftUI)
+XCODE 사용  
