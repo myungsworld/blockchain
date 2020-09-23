@@ -256,4 +256,5 @@ query랑 invoke랑 구분해서 써야함 애초에 이게 문제인지 모르�
 connection json 키값 함수 구현  
 
 ## UI (IOS SwiftUI)
-XCODE 사용  
+XCODE
+SWIFTUI
