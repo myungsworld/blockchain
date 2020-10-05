@@ -258,3 +258,8 @@ connection json 키값 함수 구현
 ## UI (IOS SwiftUI)
 XCODE
 SWIFTUI
+
+## raft 알고리즘
+
+현재 knucoin은 처음에 공부했던 예제 stream-music-2 기반으로 네트워크를 구축했으나 raft를 적용하려고 하다보니 많은 에러가 발생  
+앗싸리 그냥 raft 알고리즘 네트워크 기반으로 구축을 할지 고민중  
