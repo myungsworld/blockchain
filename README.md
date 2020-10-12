@@ -265,3 +265,4 @@ SWIFTUI
 앗싸리 그냥 raft 알고리즘 네트워크 기반으로 구축을 할지 고민중  
 레알 정보 죤내이 없네 IBM에서 github에 올린 raft example 오더러 하나하나 지우면서 구현해보는게 끝임 줘끄튼거  
 패브릭에서는 node간 보안통신 때문에 tls를 사용해서 일단 raft를 쓰려면 docker-compose에 tls 설정부터 완료해야함  
+orderering 5개 늘리고 docker-compose environment 설정
