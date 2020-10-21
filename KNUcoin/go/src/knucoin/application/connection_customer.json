@@ -26,7 +26,8 @@
         "Customer": {
             "mspid": "CustomerOrg",
             "peers": [
-                "peer0.customer.knucoin.com"
+                "peer0.customer.knucoin.com",
+                "peer1.customer.knucoin.com"
             ],
             "certificateAuthorities": [
                 "ca.customer.knucoin.com"
@@ -58,10 +59,21 @@
                 "path": "../../network/crypto-config/peerOrganizations/customer.knucoin.com/peers/peer0.customer.knucoin.com/msp/tlscacerts/tlsca.customer.knucoin.com-cert.pem"
             },
             "grpcOptions": {
+                "ssl-target-name-override": "peer0.customer.knucoin.com",
+                "hostnameOverride": "peer0.customer.knucoin.com"
+            }
+        },
+        "peer1.customer.knucoin.com": {
+            "url": "grpc://localhost:10051",
+            "tlsCACerts": {
+                "path": "../../network/crypto-config/peerOrganizations/customer.knucoin.com/peers/peer0.customer.knucoin.com/msp/tlscacerts/tlsca.customer.knucoin.com-cert.pem"
+            },
+            "grpcOptions": {
                 "ssl-target-name-override": "peer1.customer.knucoin.com",
                 "hostnameOverride": "peer1.customer.knucoin.com"
             }
         }
+
     },
     "certificateAuthorities": {
         "ca.customer.knucoin.com": {

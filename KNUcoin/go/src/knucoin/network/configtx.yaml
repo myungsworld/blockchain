@@ -34,6 +34,30 @@ Orderer: &OrdererDefaults
     Kafka:
         Brokers:
             - 127.0.0.1:9092
+    
+    EtcdRaft:
+        Consenters:
+            - Host: orderer.knucoin.com
+              Port: 7050
+              ClientTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer.knucoin.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer.knucoin.com/tls/server.crt
+            - Host: orderer2.knucoin.com
+              Port: 7050
+              ClientTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer2.knucoin.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer2.knucoin.com/tls/server.crt
+            - Host: orderer3.knucoin.com
+              Port: 7050
+              ClientTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer3.knucoin.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer3.knucoin.com/tls/server.crt
+            - Host: orderer4.knucoin.com
+              Port: 7050
+              ClientTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer4.knucoin.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer4.knucoin.com/tls/server.crt
+            - Host: orderer5.knucoin.com
+              Port: 7050
+              ClientTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer5.knucoin.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/knucoin.com/orderers/orderer5.knucoin.com/tls/server.crt
+
     Organizations:
 
 Application: &ApplicationDefaults
