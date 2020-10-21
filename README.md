@@ -265,3 +265,6 @@ SWIFTUI
 패브릭에서는 node간 보안통신 때문에 tls를 사용해서 일단 raft를 쓰려면 docker-compose에 tls 설정부터 완료해야함  
 orderering 5개 늘리고 docker-compose environment  
 컨테이너 중에 tls를 넣고 하니까 docker가 중지됨 orderer만  
+
+<img width="400" alt="스크린샷 2020-10-21 오후 8 17 16" src="https://user-images.githubusercontent.com/56465854/96712763-93e52b80-13da-11eb-822f-82a254d71172.png">
+기존 docker-compose 에 있는 환경변수 경로 설정 문제 volumes로 설정된 경로와 environment에 있는 변수들의 경로를 맞춰줘야 함
