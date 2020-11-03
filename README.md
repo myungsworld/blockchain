@@ -245,7 +245,7 @@ L(leader)+f(follow) -> RAFT
 RAFT는 여러개의 오더러가 모여서 consensus 함 (5개), kafka (4개)  
 위 두개 모두 블록의 내용이 같다는걸 증명하기 위함  
 
-contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가
+contractapi 라이브러리와 shim 라이브러리는 뭐가 다른가 => 이름만 다른듯;;
 
 ca couchdb wallet
 
