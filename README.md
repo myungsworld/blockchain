@@ -272,6 +272,7 @@ volumes로 설정된 경로와 environment에 있는 변수들의 경로를 맞�
 
 enrollAdmin.js 
 ```
-const ccpPath = path.resolve(__dirname, '/../../network/', 'connection_ca.json');
+const ccpPath = path.resolve(__dirname, '../../network/', 'connection_ca.json');
 ```
-path 설정 에러
+path 설정 에러 해결 
+
