@@ -255,10 +255,6 @@ query랑 invoke랑 구분해서 써야함 애초에 이게 문제인지 모르�
 체인코드 에러처리 완료  
 connection json 키값 함수 구현  
 
-## UI (IOS SwiftUI)
-XCODE
-SWIFTUI
-
 ## raft 알고리즘
 
 현재 knucoin은 처음에 공부했던 예제 stream-music-2 기반으로 네트워크를 구축했으나 raft를 적용하려고 하다보니 많은 에러가 발생  
