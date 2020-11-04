@@ -276,3 +276,4 @@ path 설정 에러 해결
 
 ## [모바일 개발](https://github.com/myungsworld/UFO_Mobile)
 
+QR코드 http 통신
