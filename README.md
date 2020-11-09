@@ -276,16 +276,16 @@ path 설정 에러 해결
 
 ## [모바일 개발](https://github.com/myungsworld/UFO_Mobile)
 
-POSTMAN으로 미리 song과 min을 만들어놓고 지갑 확일을 600원으로 맞춰놓은상태  
+POSTMAN으로 미리 song과 min을 만들어놓고 지갑을 600원으로 맞춰놓은상태  
 <img width="496" alt="스크린샷 2020-11-09 오후 2 28 28" src="https://user-images.githubusercontent.com/56465854/98503438-dc845c00-2297-11eb-92eb-56a42311e66d.png">
 
 QR코드 http 통신  
 <img width="823" alt="스크린샷 2020-11-09 오후 2 18 29" src="https://user-images.githubusercontent.com/56465854/98502910-a2668a80-2296-11eb-9564-f4d29f1bda69.png">
 
+폰으로 qrcode를 스캔시  
+![스크린샷 2020-11-09 오후 2 40 05](https://user-images.githubusercontent.com/56465854/98504104-78fb2e00-2299-11eb-9485-794719bb8489.png)
 
-![IMG_6BB2883E9E36-1](https://user-images.githubusercontent.com/56465854/98504011-3afe0a00-2299-11eb-883e-7e4265246269.jpeg)
-
-ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하면 response와 data를 console에 출력함   
+response와 data를 Xcode console에 출력함   
 <img width="463" alt="스크린샷 2020-11-09 오후 2 26 19" src="https://user-images.githubusercontent.com/56465854/98503338-94fdd000-2297-11eb-8e6c-61d460f3a067.png">
 
 POST형식으로 transaction을 여러번 보내봤지만 에러는 뜨지 않고 통신은 된거 같은데 POSTMAN으로 조회 해봐도 금액이 전송이 되지않음  
