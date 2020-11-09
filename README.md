@@ -277,3 +277,36 @@ path 설정 에러 해결
 ## [모바일 개발](https://github.com/myungsworld/UFO_Mobile)
 
 QR코드 http 통신
+
+```swiftui
+    func transferMoney(sender: String , receiver: String, amount: String, org: String) {
+        guard let url = URL(string: "https://984c422ec331.ngrok.io/api/transferMoney") else { return }
+        
+        let body : [String: String] = [sender: "song", receiver : "min", amount : "100", org: "CustomerOrg"]
+        
+        let finalBody = try! JSONSerialization.data(withJSONObject: body)
+        
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        request.httpBody = finalBody
+        
+        request.setValue("text/html", forHTTPHeaderField: "Contect-Type")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error{
+                print(error);
+                return;
+            }
+            
+            if let response = response{
+                print(response);
+            }
+            
+            if let data = data{
+                print(data)
+            }
+            
+        }.resume()
+    }
+```
