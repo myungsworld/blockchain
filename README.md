@@ -282,6 +282,9 @@ POSTMAN으로 미리 song과 min을 만들어놓고 지갑 확일을 600원으�
 QR코드 http 통신  
 <img width="823" alt="스크린샷 2020-11-09 오후 2 18 29" src="https://user-images.githubusercontent.com/56465854/98502910-a2668a80-2296-11eb-9564-f4d29f1bda69.png">
 
+
+![IMG_6BB2883E9E36-1](https://user-images.githubusercontent.com/56465854/98504011-3afe0a00-2299-11eb-883e-7e4265246269.jpeg)
+
 ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하면 response와 data를 console에 출력함   
 <img width="463" alt="스크린샷 2020-11-09 오후 2 26 19" src="https://user-images.githubusercontent.com/56465854/98503338-94fdd000-2297-11eb-8e6c-61d460f3a067.png">
 
