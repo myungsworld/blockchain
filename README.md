@@ -277,36 +277,11 @@ path 설정 에러 해결
 ## [모바일 개발](https://github.com/myungsworld/UFO_Mobile)
 
 QR코드 http 통신
+<img width="823" alt="스크린샷 2020-11-09 오후 2 18 29" src="https://user-images.githubusercontent.com/56465854/98502910-a2668a80-2296-11eb-9564-f4d29f1bda69.png">
 
-```swiftui
-    func transferMoney(sender: String , receiver: String, amount: String, org: String) {
-        guard let url = URL(string: "https://984c422ec331.ngrok.io/api/transferMoney") else { return }
-        
-        let body : [String: String] = [sender: "song", receiver : "min", amount : "100", org: "CustomerOrg"]
-        
-        let finalBody = try! JSONSerialization.data(withJSONObject: body)
-        
-        var request = URLRequest(url:url)
-        request.httpMethod = "POST"
-        request.httpBody = finalBody
-        
-        request.setValue("text/html", forHTTPHeaderField: "Contect-Type")
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error{
-                print(error);
-                return;
-            }
-            
-            if let response = response{
-                print(response);
-            }
-            
-            if let data = data{
-                print(data)
-            }
-            
-        }.resume()
-    }
-```
+ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하면
+<img width="438" alt="스크린샷 2020-11-09 오후 2 15 53" src="https://user-images.githubusercontent.com/56465854/98502815-54518700-2296-11eb-8c8c-7f81de47d835.png">
+
+
+![스크린샷 2020-11-09 오후 2 16 05](https://user-images.githubusercontent.com/56465854/98502861-7a772700-2296-11eb-87bd-e3d9b9eb8a89.png)
+
