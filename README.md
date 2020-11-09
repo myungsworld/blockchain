@@ -279,8 +279,8 @@ path 설정 에러 해결
 QR코드 http 통신  
 <img width="823" alt="스크린샷 2020-11-09 오후 2 18 29" src="https://user-images.githubusercontent.com/56465854/98502910-a2668a80-2296-11eb-9564-f4d29f1bda69.png">
 
-ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하면  
-<img width="438" alt="스크린샷 2020-11-09 오후 2 15 53" src="https://user-images.githubusercontent.com/56465854/98502815-54518700-2296-11eb-8c8c-7f81de47d835.png">
+ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하면 response와 data를 console에 출력함  
+<img width="463" alt="스크린샷 2020-11-09 오후 2 26 19" src="https://user-images.githubusercontent.com/56465854/98503338-94fdd000-2297-11eb-8e6c-61d460f3a067.png">
 
 POST형식으로 transaction을 보냈는데 변경내역이 저장이 되지않음  
 ![스크린샷 2020-11-09 오후 2 16 05](https://user-images.githubusercontent.com/56465854/98502861-7a772700-2296-11eb-87bd-e3d9b9eb8a89.png)
