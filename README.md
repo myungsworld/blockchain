@@ -286,4 +286,4 @@ ngrok으로 https server를 열고 미리 만들어놓은 스캐너를 스캔하
 <img width="463" alt="스크린샷 2020-11-09 오후 2 26 19" src="https://user-images.githubusercontent.com/56465854/98503338-94fdd000-2297-11eb-8e6c-61d460f3a067.png">
 
 POST형식으로 transaction을 여러번 보내봤지만 에러는 뜨지 않고 통신은 된거 같은데 POSTMAN으로 조회 해봐도 금액이 전송이 되지않음  
-![스크린샷 2020-11-09 오후 2 16 05](https://user-images.githubusercontent.com/56465854/98502861-7a772700-2296-11eb-87bd-e3d9b9eb8a89.png)
+![스크린샷 2020-11-09 오후 2 31 20](https://user-images.githubusercontent.com/56465854/98503588-41d84d00-2298-11eb-96da-72cb5cf9c1fd.png)
