@@ -290,3 +290,5 @@ response와 data를 Xcode console에 출력함
 
 POST형식으로 transaction을 여러번 보내봤지만 에러는 뜨지 않고 통신은 된거 같은데 POSTMAN으로 조회 해봐도 금액이 전송이 되지않음  
 ![스크린샷 2020-11-09 오후 2 31 20](https://user-images.githubusercontent.com/56465854/98503588-41d84d00-2298-11eb-96da-72cb5cf9c1fd.png)
+
+내 QR코드 만들기 
