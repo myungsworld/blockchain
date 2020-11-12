@@ -248,6 +248,9 @@ path 설정 에러 해결
 
 패브릭 네트워크 구축 및 서버 sdk 구축 끝
 
+customerOrg에서 POST 형식으로 보낼때 
+Failed to submit transaction: Error: No event hubs for strategy. 이 에러 고쳐야함  
+
 ## [모바일 개발](https://github.com/myungsworld/UFO_Mobile)
 
 POSTMAN으로 미리 song과 min을 만들어놓고 지갑을 600원으로 맞춰놓은상태  
