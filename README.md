@@ -268,6 +268,6 @@ response와 data를 Xcode console에 출력함
 POST형식으로 transaction을 여러번 보내봤지만 에러는 뜨지 않고 통신은 된거 같은데 POSTMAN으로 조회 해봐도 금액이 전송이 되지않음  
 ![스크린샷 2020-11-09 오후 2 31 20](https://user-images.githubusercontent.com/56465854/98503588-41d84d00-2298-11eb-96da-72cb5cf9c1fd.png)
 
-내 QR코드 만들기 
+내 QR코드 만들기  
 ![스크린샷 2020-11-13 오후 12 34 36](https://user-images.githubusercontent.com/56465854/99025688-bec33980-25ac-11eb-8391-5ef3d0f23785.png)
 이 qrcode를 스캔하면 transferMoney를 백엔드에서 실행하게 설정  
