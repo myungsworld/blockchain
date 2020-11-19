@@ -278,3 +278,17 @@ POST형식으로 transaction을 여러번 보내봤지만 에러는 뜨지 않�
 증명자가 자신의 정보를 공개하지 않으면서 그 정보를 알고 있다는 사실을 검증자에게 증명하는 방식    
 여기서 발전한 zk-SNARK은 기존 여러번 교환을 필요로 했던 영지식 증명에 반해 미리 정의된 함수를 사용해 단 한번만 검증하는 방식  
 
+## DID
+
+(Decentralized Identity)탈중앙화 신원증명  
+말그대로 중앙기관없이 개인의 신원을 증명하는 기술  
+
+**SSelf-sovereign Identity**  
+자기 자신을 증명할수 있는 방법을 여러가지로 설정해서 요구사항에 맞는 정보만 조합(Presentation)을 제출  
+
+Holder(보유자)는 Verifiable Credential을 보유한 주체  
+Issuer(발행자)는 Verifiable Credential을 발행하는 주체  
+Verifier(검증자)는 Verifiable Presentation을 검증하는 주체  
+
+Credential이란 Issuer가 검증할 수 있는 Claim(예를 들면 이름, 주민등록번호와 같은 단일 속성 정보)의 집합  
+Presentation은 Holder가 Credential을 기반으로 Claim 중 일부를 조합하여 새로 생성한 정보  
