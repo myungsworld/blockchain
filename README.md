@@ -92,9 +92,7 @@ _ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 �
 Channel configurations can be built using a tool called configtxgen, which uses a configtx.yaml file as its input. You can look at a sample configtx.yaml  
 블록체인 네트워크의 구조를 식별하는 정보와 구조가 상호 작용하는 방식을 제어하는 프로세스가 채널 구성에 포함됨  
 **Channl update transaction**이란 멤버를 추가하여 구조를 변경하거나 채널 정책을 수정하는 일 초기 구성원들이 논의후 단일 채널 관리자가 제안  
-
-## [policy](https://hyperledger-fabric.readthedocs.io/en/latest/policies/policies.html)
-At its most basic level, a policy is a set of rules that define the structure for how decisions are made and specific outcomes are reached  
+  
 Some other things that are possible to change with a config update include:  
 **Batch Size** :블록안의 트랜잭션과 메세지등의 크기를 제한하는?(정하는) 파라미터  
 ```
@@ -127,6 +125,13 @@ Some other things that are possible to change with a config update include:
   }
 }
 ```
+
+## [policy](https://hyperledger-fabric.readthedocs.io/en/latest/policies/policies.html)
+At its most basic level, a policy is a set of rules that define the structure for how decisions are made and specific outcomes are reached
+패브릭에서는 정책이 인프라 관리를 위한 메커니즘  
+패브릭 정책은 구성원이 네트워크,채널 또는 스마트 계약에 대한 변경 사항을 수락 또는 거부하는데 동의하는 방식  
+정책은 네트워크가 처음 구성 될때 컨소시엄 구성원이 동의하지만 네트워크가 발전함에 따라 수정할 수도 있음  
+
 
 ## HLF Ledger
 Blockchain + database
