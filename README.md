@@ -132,10 +132,12 @@ At its most basic level, a policy is a set of rules that define the structure fo
 패브릭 정책은 구성원이 네트워크,채널 또는 스마트 계약에 대한 변경 사항을 수락 또는 거부하는데 동의하는 방식  
 정책은 네트워크가 처음 구성 될때 컨소시엄 구성원이 동의하지만 네트워크가 발전함에 따라 수정할 수도 있음  
 
-
+**패브릭 정첵 계층**  
 ![스크린샷 2020-11-27 오후 3 37 36](https://user-images.githubusercontent.com/56465854/100418721-9700c500-30c6-11eb-9660-63e897295cc9.png)
 
-
+모든 네트워크는 시스템 채널로 시작된다.  
+ordering 서비스에는 단 하나의 ordering 시스템 채널이 있어야 하며 시스템 채널은 오더링 조직도 포함한다.  
+ordering 시스템 채널 구성 블록의 정책은 ordering service에서 사용하는 합의를 제어하고 새 블록이 생성되는 방법을 정의함  
 ## HLF Ledger
 Blockchain + database
 read/write set are written to the blockchain
