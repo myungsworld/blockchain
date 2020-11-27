@@ -138,9 +138,9 @@ At its most basic level, a policy is a set of rules that define the structure fo
 signature policy 보다 더 세밀한 정의가 필요할때  
 <img width="235" alt="스크린샷 2020-11-27 오후 6 41 57" src="https://user-images.githubusercontent.com/56465854/100434722-46966100-30e0-11eb-8d80-05a360d86b00.png">
 
-Admin : 전박적인 네트워크 주요 운영 역할
-Writer : 원장 업데이트
-Reader : 원장 조회
+Admin : 전박적인 네트워크 주요 운영 역할  
+Writer : 원장 업데이트  
+Reader : 원장 조회  
 
 **패브릭 정첵 계층**  
 정책은 패브릭 네트워크의 여러 구간에서 구현된다.  
