@@ -131,18 +131,9 @@ At its most basic level, a policy is a set of rules that define the structure fo
 패브릭에서는 정책이 인프라 관리를 위한 메커니즘  
 패브릭 정책은 구성원이 네트워크,채널 또는 스마트 계약에 대한 변경 사항을 수락 또는 거부하는데 동의하는 방식  
 정책은 네트워크가 처음 구성 될때 컨소시엄 구성원이 동의하지만 네트워크가 발전함에 따라 수정할 수도 있음  
-**Signature policies**  
-반듯이 필요한 서명을 명시하는 정의 (AND,OR,NOutOf)  
-<img width="334" alt="스크린샷 2020-11-27 오후 6 41 03" src="https://user-images.githubusercontent.com/56465854/100434719-45fdca80-30e0-11eb-9c14-63107656f16e.png">  
-**ImplicitMeta policies**  
-signature policy 보다 더 세밀한 정의가 필요할때  
-<img width="235" alt="스크린샷 2020-11-27 오후 6 41 57" src="https://user-images.githubusercontent.com/56465854/100434722-46966100-30e0-11eb-8d80-05a360d86b00.png">
 
-Admin : 전박적인 네트워크 주요 운영 역할  
-Writer : 원장 업데이트  
-Reader : 원장 조회  
 
-**패브릭 정첵 계층**  
+**패브릭 정책 계층**  
 정책은 패브릭 네트워크의 여러 구간에서 구현된다.  
 ![스크린샷 2020-11-27 오후 3 37 36](https://user-images.githubusercontent.com/56465854/100418721-9700c500-30c6-11eb-9660-63e897295cc9.png)
 
@@ -156,7 +147,17 @@ ordering 시스템 채널 구성 블록의 정책은 ordering service에서 사�
 멤버를 추가하거나 제거하는 기능을 제어함, 체인코드 정의,체인코드 승인
 
 **Access control lists(ACL)**  
+패브릭은 ACL을 기반으로 Policy에 따른 resource 접근관리를 함  
+**Signature policies**  
+반듯이 필요한 서명을 명시하는 정의 (AND,OR,NOutOf)  
+<img width="334" alt="스크린샷 2020-11-27 오후 6 41 03" src="https://user-images.githubusercontent.com/56465854/100434719-45fdca80-30e0-11eb-9c14-63107656f16e.png">  
+**ImplicitMeta policies**  
+signature policy 보다 더 세밀한 정의가 필요할때  
+<img width="235" alt="스크린샷 2020-11-27 오후 6 41 57" src="https://user-images.githubusercontent.com/56465854/100434722-46966100-30e0-11eb-8d80-05a360d86b00.png">
 
+Admin : 전박적인 네트워크 주요 운영 역할  
+Writer : 원장 업데이트  
+Reader : 원장 조회  
 ## HLF Ledger
 Blockchain + database
 read/write set are written to the blockchain
