@@ -87,13 +87,57 @@ _ __Peer__ 블록체인 데이터를 저장하고 유지보수 체인코드를 �
   * version : 피어 노드 버전 정보 표시  
 - __Orderer__ 트랜잭션 패키징,정렬 도구  
 
+
+## [Channel Configuration](https://hyperledger-fabric.readthedocs.io/en/release-1.4/config_update.html)
+Beyond the definitions of the policies  
+Defining who can do certain things at the channel level, and who has the permission to change who can change the config  
+channels also have other kinds of features that can be modified using a config update  
+Adding an Org to a Channel takes you through one of the most important  
+
+Some other things that are possible to change with a config update include:  
+**Batch Size** :블록안의 트랜잭션과 메세지등의 크기를 제한하는?(정하는) 파라미터  
+```
+{
+  "absolute_max_bytes": 102760448,
+  "max_message_count": 10,
+  "preferred_max_bytes": 524288
+}
+```
+**Batch Timeout** :블록을 만들기전 첫번째 트랜잭션이 추가 트랜잭션을 위해 대기하는 시간,  
+                   이 값을 줄이면 대기시간은 늘어나지만 너무 많이 줄이면 처리량이 적어져 블록에 담을 수 있는 용량을 다 채우지 못하는 문제점이 발생  
+```
+{ "timeout": "2s" }
+```
+
+**Channel Restrictions** : 채널의 수 제한
+```
+{
+ "max_count":1000
+}
+```
+
+**채널 생성 정책** : 오더러에서 정의되는 채널 설정
+```
+{
+"type": 3,
+"value": {
+  "rule": "ANY",
+  "sub_policy": "Admins"
+  }
+}
+```
+
+## HLF Ledger
+Blockchain + database
+read/write set are written to the blockchain
+
 ## MSP
 하이퍼레저 모든 기능은 MSP정보를 토대로 동작한다.  
 MSP는 쉽게 생각하면 인증서를 만들어주는 거고 CA는 그 인증서를 관리하는 서버다.  
 네트워크,채널,피어,오더러 모두 MSP를 가지고 
 피어와 오더러 MSP는 로컬에서 파일 시스템에 탑재 되어 사용하고  
 네트워크와 채널 MSP는 글로벌로 모든 구성원들을 식별할때 사용되고 이 정보는 제네시스블록과 채널 트랜잭션에 포함된다.  
-
+ 
 ## HLF Ledger
 Blockchain + database
 read/write set are written to the blockchain
