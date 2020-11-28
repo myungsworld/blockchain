@@ -381,3 +381,18 @@ Verifier(검증자)는 Verifiable Presentation을 검증하는 주체
 
 Credential이란 Issuer가 검증할 수 있는 Claim(예를 들면 이름, 주민등록번호와 같은 단일 속성 정보)의 집합  
 Presentation은 Holder가 Credential을 기반으로 Claim 중 일부를 조합하여 새로 생성한 정보  
+
+## [SSI In Fabric](https://hyperledger-fabric.readthedocs.io/en/latest/idemix.html)
+![스크린샷 2020-11-28 오후 2 38 10](https://user-images.githubusercontent.com/56465854/100494700-67fe5800-3187-11eb-878e-f9dc6e3aff22.png)  
+
+fabric-ca-server가 실행되면 server 디렉터리 안에 **IssurePublicKey** 와 **IssuerRevocationPublicKey**가 생성된다.  
+위에서 생성된 두개의 키로 **Idemix MSP** 를 생성한다.  
+
+**Chaincode and Idemix**  
+현재는 Golang에서 cid 라이브러리에 있는 GetAttributeValue 함수만 지원한다.  
+**ou** 와 **role** 이 두개의 속성만 개시된다.  
+
+Fabric CA가 자격증명발급자(credential issuer)인경우  
+**ou** 속성의 값은 ID의 affiliation(소속)이다.  
+**role** 속성의 값은 member 혹은 admin이다. admin값은 ID가 MSP 관리자를 의미한다.  
+기본적으로 Fabric CA에서 생성된 ID는 member role 로 리턴되고 admin ID를 만들려면 role 속성과 value of 2(2의 값?)을 등록해야 한다.  
