@@ -26,8 +26,7 @@
         "Sales": {
             "mspid": "SalesOrg",
             "peers": [
-                "peer0.sales.knucoin.com",
-                "peer1.sales.knucoin.com"
+                "peer0.sales.knucoin.com"
             ],
             "certificateAuthorities": [
                 "ca.sales.knucoin.com"
@@ -55,16 +54,6 @@
     "peers": {
         "peer0.sales.knucoin.com": {
             "url": "grpc://localhost:7051",
-            "tlsCACerts": {
-                "path": "../../network/crypto-config/peerOrganizations/sales.knucoin.com/peers/peer0.sales.knucoin.com/msp/tlscacerts/tlsca.sales.knucoin.com-cert.pem"
-            },
-            "grpcOptions": {
-                "ssl-target-name-override": "peer0.sales.knucoin.com",
-                "hostnameOverride": "peer0.sales.knucoin.com"
-            }
-        },
-        "peer1.sales.knucoin.com": {
-            "url": "grpc://localhost:8051",
             "tlsCACerts": {
                 "path": "../../network/crypto-config/peerOrganizations/sales.knucoin.com/peers/peer0.sales.knucoin.com/msp/tlscacerts/tlsca.sales.knucoin.com-cert.pem"
             },

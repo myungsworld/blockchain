@@ -4,3 +4,6 @@
 [submodule "raft-fabric-sample"]
 	path = raft-fabric-sample
 	url = https://github.com/IBM/raft-fabric-sample.git
+[submodule "UFO"]
+	path = UFO
+	url = https://github.com/byun618/UFO

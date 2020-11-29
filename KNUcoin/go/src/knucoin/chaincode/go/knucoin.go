@@ -1,17 +1,15 @@
 package main
 
-import (
+import (	
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"strconv"
-
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
 )
 
-type SmartContract struct{}
-
+type SmartContract struct {}
 func main() {
 
 	err := shim.Start(new(SmartContract))
@@ -19,9 +17,8 @@ func main() {
 		fmt.Printf("Error starting chaincode: %s", err)
 	}
 }
-
 type Wallet struct {
-	ID    string `json:"id"`
+	ID   string `json:"id"`
 	Token string `json:"token"`
 }
 
@@ -31,7 +28,7 @@ func (s *SmartContract) Init(APIstub shim.ChaincodeStubInterface) pb.Response {
 
 func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) pb.Response {
 	function, args := APIstub.GetFunctionAndParameters()
-
+	
 	if function == "initWallet" {
 		return s.initWallet(APIstub, args)
 	} else if function == "chargeMoney" {
@@ -53,7 +50,7 @@ func (s *SmartContract) initWallet(APIstub shim.ChaincodeStubInterface, args []s
 	wallet := Wallet{ID: args[0], Token: "0"}
 	// Convert wallet to []byte
 	WalletasJSONBytes, _ := json.Marshal(wallet)
-
+	
 	err := APIstub.PutState(wallet.ID, WalletasJSONBytes)
 	if err != nil {
 		return shim.Error("Failed to create asset " + wallet.ID)
@@ -134,47 +131,32 @@ func (s *SmartContract) getWallet(APIstub shim.ChaincodeStubInterface, args []st
 }
 
 func (s *SmartContract) transferMoney(APIstub shim.ChaincodeStubInterface, args []string) pb.Response {
-	var senderToken, receiverToken int
-	var amount int
 	var err error
 	if len(args) != 3 {
 		return shim.Error("Incorrect number of arguments. Expecting 3")
 	}
 
-	fmt.Println("Sender : " + args[0] + ", Receiver : " + args[1] + "amount : " + args[2])
+	fmt.Println("Sender : " + args[0] + ", Receiver : " + args[1] + "amount : "+ args[2])
 
-	receiverAsBytes, err := APIstub.GetState(args[1])
+	SenderAsBytes, err := APIstub.GetState(args[0])
 	if err != nil {
 		return shim.Error(err.Error())
 	}
+	sender := Wallet{}
+	json.Unmarshal(SenderAsBytes, &sender)
 
-	if receiverAsBytes == nil {
-		return shim.Error("Entity not found")
+	ReceiverAsBytes, err := APIstub.GetState(args[1])
+	if err != nil {
+		return shim.Error(err.Error())
 	}
 	receiver := Wallet{}
-	json.Unmarshal(receiverAsBytes, &receiver)
-	receiverToken, _ = strconv.Atoi(string(receiver.Token))
+	json.Unmarshal(ReceiverAsBytes, &receiver)
 
-	senderAsBytes, err := APIstub.GetState(args[0])
-	if err != nil {
-		return shim.Error(err.Error())
-	}
-	if senderAsBytes == nil {
-		return shim.Error("Entity not found")
-	}
+	var senderToken, _ = strconv.Atoi(string(sender.Token))
+	var receiverToken, _ = strconv.Atoi(string(receiver.Token))
+	var amount, _ = strconv.Atoi(string(args[2]))
 
-	sender := Wallet{}
-	json.Unmarshal(senderAsBytes, &sender)
-	senderToken, _ = strconv.Atoi(sender.Token)
-
-	amount, _ = strconv.Atoi(args[2])
-	if amount < 0 {
-		return shim.Error("you can't transfer less than 0")
-	}
 	sender.Token = strconv.Itoa(senderToken - amount)
-	if amount > senderToken {
-		return shim.Error(args[0] + "doesn't have enough money to send")
-	}
 	receiver.Token = strconv.Itoa(receiverToken + amount)
 
 	updatedSenderAsBytes, _ := json.Marshal(sender)

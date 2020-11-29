@@ -28,7 +28,3 @@ __Server :__ `허강주`
 [dev_log.md](https://github.com/byun618/KNUCoin/blob/master/dev_log.md)
 
 ---
-
-## 2020-09-21
-
-![KakaoTalk_Photo_2020-09-21-18-41-38](https://user-images.githubusercontent.com/56465854/93752838-2fe41180-fc3a-11ea-88ad-2195e65e3743.png)

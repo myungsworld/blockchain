@@ -8,8 +8,8 @@ function replacePrivateKey() {
     cp docker-compose-template.yaml docker-compose.yaml
     PRIV_KEY1=$(ls crypto-config/peerOrganizations/sales.knucoin.com/ca/ | grep _sk)
     PRIV_KEY2=$(ls crypto-config/peerOrganizations/customer.knucoin.com/ca/ | grep _sk)
-    sed -i '' "s/CA_SALES_PRIVATE_KEY/${PRIV_KEY1}/g" docker-compose.yaml
-    sed -i '' "s/CA_CUSTOMER_PRIVATE_KEY/${PRIV_KEY2}/g" docker-compose.yaml
+    sed -i "s/CA_SALES_PRIVATE_KEY/${PRIV_KEY1}/g" docker-compose.yaml
+    sed -i "s/CA_CUSTOMER_PRIVATE_KEY/${PRIV_KEY2}/g" docker-compose.yaml
 }
 
 function checkPrereqs() {
@@ -55,22 +55,22 @@ sleep 1
 # Install and instantiate chaincode 
 
 # peer0.sales.com
-docker exec cli peer chaincode install -n knucoin-cc3 -v 1.04 -p chaincode/go
+docker exec cli peer chaincode install -n knucoin-cc -v 1.02 -p chaincode/go
 sleep 1
 
 # peer1.sales.com
-docker exec -e "CORE_PEER_ADDRESS=peer1.sales.knucoin.com:7051" cli peer chaincode install -n knucoin-cc3 -v 1.04 -p chaincode/go
+docker exec -e "CORE_PEER_ADDRESS=peer1.sales.knucoin.com:7051" cli peer chaincode install -n knucoin-cc -v 1.02 -p chaincode/go
 sleep 1
 
 # peer0.customer.com
-docker exec -e "CORE_PEER_LOCALMSPID=CustomerOrg" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp" -e "CORE_PEER_ADDRESS=peer0.customer.knucoin.com:7051" cli peer chaincode install -n knucoin-cc3 -v 1.04 -p chaincode/go
+docker exec -e "CORE_PEER_LOCALMSPID=CustomerOrg" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp" -e "CORE_PEER_ADDRESS=peer0.customer.knucoin.com:7051" cli peer chaincode install -n knucoin-cc -v 1.02 -p chaincode/go
 sleep 1
 
 # peer1.customer.com
-docker exec -e "CORE_PEER_LOCALMSPID=CustomerOrg" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp" -e "CORE_PEER_ADDRESS=peer1.customer.knucoin.com:7051" cli peer chaincode install -n knucoin-cc3 -v 1.04 -p chaincode/go
+docker exec -e "CORE_PEER_LOCALMSPID=CustomerOrg" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/customer.knucoin.com/users/Admin@customer.knucoin.com/msp" -e "CORE_PEER_ADDRESS=peer1.customer.knucoin.com:7051" cli peer chaincode install -n knucoin-cc -v 1.02 -p chaincode/go
 sleep 1
 
-docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channelsales1 -n knucoin-cc3 -v 1.04 -c '{"Args":[""]}' -P "OR ('SalesOrg.member','CustomerOrg.member')"
+docker exec cli peer chaincode instantiate -o orderer.knucoin.com:7050 -C channelsales1 -n knucoin-cc -v 1.02 -c '{"Args":[""]}' -P "OR ('SalesOrg.member','CustomerOrg.member')"
 
 cd ../application/sdk
 node enrollAdmin.js
